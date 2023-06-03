@@ -1,40 +1,51 @@
 # go_show_logs
 Simple wrapper to combine logging into terminal &amp; file
 
-## Parameters
-`string` **execName** - name of the executable
+Prints messages into `log` and if is enabled to `fmt`
 
-`[]string` **args** - list of parameters
+## Usage
 
-`string` **dirPath** - location of executable
-
-`bool` **noWait** - trigger waiting for execution to complete
-
-
-## Examples
-
-### Execute with "go run"
+### Toggle Enable/Disable
 ```
-params := "param1=1 param2=tst"
-
-res, err := Run("go", []string{
-	"run",
-	"main.go",
-	"functions.go",
-	"param0=0",
-	params,
-}, "../test_program", true)
+show_logs.Enable()
+show_logs.Disable()
 ```
-> cd ../test_program ; go run main.go functions.go param0=0 param1=1 param2=tst &
 
-### Execute binary
+### Print
+Uses all standard `fmt` & log `methods`
 ```
-params := "param1=1 param2=tst"
+show_logs.Print(a ...interface{})
 
-res, err := Run("./search_tw_accounts", []string{
-	"./test_program",
-    "param0=0",
-	params,
-}, "../test_program", false)
+show_logs.Println(a ...interface{})
+
+show_logs.Printf(str string, a ...interface{})
+
+show_logs.Printfln(str string, a ...interface{})
+
+show_logs.Fatal(a ...interface{})
+
+show_logs.Fatalln(a ...interface{})
+
+show_logs.Fatalf(str string, a ...interface{})
+
+show_logs.Fatalfln(str string, a ...interface{})
+
+show_logs.Panic(a ...interface{})
+
+show_logs.Panicln(a ...interface{})
+
+show_logs.Panicf(str string, a ...interface{})
+
+show_logs.Panicfln(str string, a ...interface{})
 ```
-> ./../test_program/test_program param0=0 param1=1 param2=tst
+
+### Print only in fmt( if enabled )
+```
+show_logs.Show(a ...interface{})
+
+show_logs.Showln(a ...interface{})
+
+show_logs.Showf(str string, a ...interface{})
+
+show_logs.Showfln(str string, a ...interface{})
+```
