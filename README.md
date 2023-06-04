@@ -1,5 +1,5 @@
 # go_show_logs
-Simple wrapper to combine logging into terminal &amp; file
+Library to combine logging into terminal &amp; file
 
 Prints messages into `log` and if is enabled to `fmt`
 
